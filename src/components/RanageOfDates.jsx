@@ -28,9 +28,9 @@ function RangeOfdates() {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '53387c7298msh6b609fe658ad83ep16fa8ajsn6f78dd534059',
+                'X-RapidAPI-Key': 'c8f6466e7bmshf81bd08aa0aff62p14422ajsn342661f98cd7',
                 'X-RapidAPI-Host': 'movies-api14.p.rapidapi.com'
-            }
+            }        
         };
 
 

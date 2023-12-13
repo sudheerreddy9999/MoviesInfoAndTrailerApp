@@ -7,7 +7,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import YouTube from "react-youtube";
 
-const YoutubeVideo = (props) => {
+const YoutubeVideo1 = (props) => {
     const { open, handleClose, youtubeURL ,handelImageClick} = props;
     function getYouTubeVideoId(url) {
         try {
@@ -38,51 +38,25 @@ const YoutubeVideo = (props) => {
     console.log(opts.host);
     return (
         <div>
-            <Dialog
-                component="span"
-                fullWidth={true}
-                MinWidth={"400px"}
-                open={open}
-                onClose={handleClose}
-                PaperProps={{
-                    sx: {
-                        width: "80%",
-                        maxHeight: "600px",
-                    },
-                }}
-                aria-labelledby="draggable-dialog-title"
-            >
-                <DialogTitle id="draggable-dialog-title" className="Dialog-Youtube" component="span">
-                    <div className="dialogHeader">
-                        <h4>Youtube video</h4>
-                        <div class="modal-footer">
-                        </div>
-                    </div>
 
-                 (
-                        <IconButton
-                            aria-label="close"
-                            onClick={handleClose}
-                            sx={{
-                                position: "absolute",
-                                right: 8,
-                                top: 8,
-                                color: (theme) => theme.palette.grey[500],
-                            }}
-                        >
+        
 
-                            <CloseIcon />
-                        </IconButton>
-                    ) 
-                </DialogTitle>
-                <DialogContent component="span">
-                    <DialogContentText component="span">
-                        <YouTube videoId={id} props={opts} />
-                    </DialogContentText>
-                </DialogContent>
-            </Dialog>
-        </div>
+<div class="modal-dialog">
+<div class="modal-content" id="trailerModel">
+  <div class="modal-header">    
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+  </div>
+
+  <div class="modal-body" >
+    
+  <YouTube videoId={id} props={opts} />
+  </div>
+
+</div>
+</div>
+</div>
     );
 };
 
-export default YoutubeVideo;
+export default  YoutubeVideo1 
+;

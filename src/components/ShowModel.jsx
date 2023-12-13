@@ -1,7 +1,7 @@
 
 
 import React, { useState, Children } from 'react';
-import YoutubeVideo1 from './Dummu';
+import YoutubeVideo1 from './YoutubeVideo';
 
 const Modal = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
