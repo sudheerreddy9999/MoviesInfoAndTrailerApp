@@ -1,14 +1,12 @@
-import React,{useState} from "react";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
+import React from "react";
 import YouTube from "react-youtube";
 
 const YoutubeVideo1 = (props) => {
-    const { open, handleClose, youtubeURL ,handelImageClick} = props;
+    const {  handelChangeFromYoutube, youtubeURL } = props;
+    const handelChange = ()=>{
+        handelChangeFromYoutube(false);
+    }
+
     function getYouTubeVideoId(url) {
         try {
             const videoUrl = new URL(url);
@@ -18,9 +16,6 @@ const YoutubeVideo1 = (props) => {
             console.error('Invalid YouTube URL:', error.message);
             return null;
         }
-    }
-    function sendDataToModel(){
-        handelImageClick(!open);
     }
     
     const id = getYouTubeVideoId(youtubeURL);
@@ -44,14 +39,16 @@ const YoutubeVideo1 = (props) => {
 <div class="modal-dialog">
 <div class="modal-content" id="trailerModel">
   <div class="modal-header">    
-    <button type="button" class="close" data-dismiss="modal">&times;</button>
   </div>
 
   <div class="modal-body" >
     
   <YouTube videoId={id} props={opts} />
   </div>
-
+  <div className="buttonCloseFromYoutube">
+  <button onClick={handelChange} className="buttonChangeFromYoutube">Close</button>
+  </div>
+ 
 </div>
 </div>
 </div>

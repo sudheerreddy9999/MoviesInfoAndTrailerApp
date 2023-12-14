@@ -13,6 +13,9 @@ const Modal = (props) => {
     setIsModalOpen(false);
 
   }
+  const  handelChangeFromYoutube = (data)=>{
+    setIsModalOpen(data);
+  }
   const array = Object.values(props)
   const genres = Children.toArray(array[0].genres);
 
@@ -35,6 +38,7 @@ const Modal = (props) => {
               {isModalOpen ? <YoutubeVideo1 open={isModalOpen}
                 handelClose={handleClose}
                 handelImageClick={handelImageClick}
+                handelChangeFromYoutube = {handelChangeFromYoutube}
                 youtubeURL={array[0].youtube_trailer}
               /> : <></>}
               <div>

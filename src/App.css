@@ -45,6 +45,11 @@ background-image: url("https://www.transparenttextures.com/patterns/circles.png"
 .mainDiv{
   display: block;
 }
+.appTitle{
+  font-family:sans-serif;
+  font-weight: 600;
+  margin-top: 2%;
+}
 .datesForm{
   display: flex;
   justify-content: center;
@@ -87,6 +92,10 @@ background-image: url("https://www.transparenttextures.com/patterns/circles.png"
   background-color:aliceblue;
  margin: 40px;
 }
+.smallMovieContainer {
+  height: 470px;
+}
+
 .valueContainer{
   text-align: center;
 }
@@ -240,4 +249,25 @@ input {
 .itemP{
   padding: 10px;
   margin-top: 6px;
+}
+@media only screen and (max-width: 1150px) {
+  .inputValues{
+    width: 600px;
+    margin-left: 10%;
+    margin-top: 5%;
+    height: 150px;
+    border-radius: 15px;
+  }
+
+}
+.buttonCloseFromYoutube{
+  display: flex;
+  justify-content: right;
+}
+.buttonChangeFromYoutube{
+  background-color: orange;
+  width: 100px;
+  height: 50px;
+  border: none;
+  border-radius: 7px;
 }

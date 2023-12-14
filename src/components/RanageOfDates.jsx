@@ -14,9 +14,6 @@ function RangeOfdates() {
     const handelToChange = (e) => {
         setToDate(e.target.value);
     }
-    const handelSearchValue = (e) => {
-        setSearchValue(e.target.value);
-    }
     const getMovies = async (serachValue) => {
         console.log("Helo")
         let url = 'https://movies-api14.p.rapidapi.com/movies';
