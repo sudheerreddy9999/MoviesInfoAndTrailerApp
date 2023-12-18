@@ -2,8 +2,8 @@ import React from "react";
 import YouTube from "react-youtube";
 
 const YoutubeVideo1 = (props) => {
-    const {  handelChangeFromYoutube, youtubeURL } = props;
-    const handelChange = ()=>{
+    const { handelChangeFromYoutube, youtubeURL } = props;
+    const handelChange = () => {
         handelChangeFromYoutube(false);
     }
 
@@ -17,43 +17,27 @@ const YoutubeVideo1 = (props) => {
             return null;
         }
     }
-    
+
     const id = getYouTubeVideoId(youtubeURL);
-    console.log(id);
 
 
     const opts = {
-        width: "100%",
+        width: "80%",
         host: `https://www.youtube.com/embed/' + ${id} + '?showinfo=0&enablejsapi=1&origin=http://localhost:3000`,
-        height: "400",
+        height: "300",
         playerVars: {
             autoplay: 1,
         },
     };
-    console.log(opts.host);
     return (
-        <div>
-
-        
-
-<div class="modal-dialog">
-<div class="modal-content" id="trailerModel">
-  <div class="modal-header">    
-  </div>
-
-  <div class="modal-body" >
-    
-  <YouTube videoId={id} props={opts} />
-  </div>
-  <div className="buttonCloseFromYoutube">
-  <button onClick={handelChange} className="buttonChangeFromYoutube">Close</button>
-  </div>
- 
-</div>
-</div>
-</div>
+        <div className="myYoutubeContainer">
+                    <div className="youTubeVideo" >
+                        <YouTube videoId={id} props={opts} />
+            </div>
+            <button onClick={handelChange} className="buttonChangeFromYoutube">Close</button>
+        </div>
     );
 };
 
-export default  YoutubeVideo1 
-;
+export default YoutubeVideo1
+    ;

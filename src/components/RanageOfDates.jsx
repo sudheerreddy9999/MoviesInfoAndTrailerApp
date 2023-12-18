@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import MoviesList from "./MoviesList.jsx";
-import SearchBox from "./SearchMovie.jsx";
 
 function RangeOfdates() {
 
@@ -8,6 +7,7 @@ function RangeOfdates() {
     const [toDate, setToDate] = useState("");
     const [serachValue, setSearchValue] = useState("");
     const [apiMovies, setApiMovies] = useState([]);
+
     function handelFromChange(e) {
         setFromDate(e.target.value);
     }
@@ -15,7 +15,6 @@ function RangeOfdates() {
         setToDate(e.target.value);
     }
     const getMovies = async (serachValue) => {
-        console.log("Helo")
         let url = 'https://movies-api14.p.rapidapi.com/movies';
 
         if (serachValue !== "") {
@@ -27,64 +26,59 @@ function RangeOfdates() {
             headers: {
                 'X-RapidAPI-Key': 'c8f6466e7bmshf81bd08aa0aff62p14422ajsn342661f98cd7',
                 'X-RapidAPI-Host': 'movies-api14.p.rapidapi.com'
-            }        
+            }
         };
-
-
         try {
             const response = await fetch(url, options);
             const result = await response.json();
             if (serachValue !== "") {
-                setApiMovies(Object.values(result.contents));
+                console.log(result);
+                setApiMovies(result.contents);
             } else {
+                console.log("Sudheer")
+                console.log(result)
                 setApiMovies(result.movies);
             }
-
-
         } catch (error) {
             console.error(error);
         }
     }
-
     let ValuFrom = new Date(fromDate)
     let valueTo = new Date(toDate)
     const handelOnSubmit = () => {
-        console.log("date Values")
         const result = apiMovies.filter(x => {
-            console.log(x.release_date)
-            console.log(valueTo);
-            console.log(ValuFrom);
             let value = new Date(x.release_date);
             return value >= ValuFrom && value <= valueTo
         })
         setApiMovies(result);
-        console.log(apiMovies)
-
     }
     useEffect(() => {
         getMovies(serachValue);
     }, [serachValue])
+
     return (
         <div className="MainDiv">
             <div className="inputValues">
                 <div className="datesForm">
-
                     <p>From</p>
                     <input type="date" className="inputDate" onChange={handelFromChange} value={fromDate}  ></input>
                     <p>To</p>
                     <input type="date" className="inputDate" onChange={handelToChange} value={toDate} />
                     <button className="buttonSubmit" onClick={handelOnSubmit}>Submit</button>
-
                 </div>
                 <div className="searchValue">
-                    <SearchBox serachValue={serachValue} setSearchValue={setSearchValue} />
+                    <div>
+                        <input
+                            className='form-control'
+                            value={serachValue}
+                            onChange={(event) => setSearchValue(event.target.value)}
+                            placeholder='Search By Movie Name.....'
+                        ></input>
+                    </div>
                 </div>
             </div>
-
-
             <MoviesList moviesData={apiMovies} />
         </div>
-
     )
 }
 export default RangeOfdates;
