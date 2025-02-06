@@ -20,7 +20,6 @@ function RangeOfdates() {
         if (serachValue !== "") {
             url = `https://movies-api14.p.rapidapi.com/search?query=${serachValue}}`
         }
-        console.log(url);
         const options = {
             method: 'GET',
             headers: {
@@ -46,6 +45,7 @@ function RangeOfdates() {
     let ValuFrom = new Date(fromDate)
     let valueTo = new Date(toDate)
     const handelOnSubmit = () => {
+        console.log(`I got clicked `)
         const result = apiMovies.filter(x => {
             let value = new Date(x.release_date);
             return value >= ValuFrom && value <= valueTo
